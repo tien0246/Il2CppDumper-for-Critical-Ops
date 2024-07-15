@@ -1,7 +1,7 @@
 
 # Il2CppDumper for Critical Ops
 
-Here is a Unity Il2CppDumper I made that works for Critical Ops version 1.45.4
+Here is a Unity Il2CppDumper I made that works for Critical Ops
 
 Tested on iOS.
 

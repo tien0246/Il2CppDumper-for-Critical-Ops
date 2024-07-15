@@ -8,69 +8,137 @@ namespace Il2CppDumper
     {
         public uint sanity;
         public int version;
-        public uint stringLiteralOffset;
+        public uint stringLiteralOffset; // string data for managed code
         public int stringLiteralSize;
         public uint stringLiteralDataOffset;
-        public int unknown14;
-        public uint stringOffset;
-        public int unknown1C;
-        public uint exportedTypeDefinitionsOffset;
-        public int attributeDataRangeSize;
-        public uint attributeDataOffset;
+        public int stringLiteralDataSize;
+        public uint stringOffset; // string data for metadata
+        public int stringSize;
+        public uint eventsOffset; // Il2CppEventDefinition
         public int eventsSize;
-        public uint methodsOffset;
-        public int fieldDefaultValuesSize;
-        public uint windowsRuntimeStringsOffset;
-        public int typeDefinitionsSize;
-        public uint fieldDefaultValuesOffset;
-        public int assembliesSize;
-        public uint genericContainersOffset;
-        public int parametersSize;
-        public uint unknown50;
+        public uint propertiesOffset; // Il2CppPropertyDefinition
         public int propertiesSize;
-        public uint propertiesOffset;
-        public int genericParametersSize;
-        public uint parameterDefaultValuesOffset;
-        public int unknown64;
-        public uint attributeDataRangeOffset;
-        public int unknown6C;
-        public uint parametersOffset;
-        public int nestedTypesSize;
-        public uint unknown78;
-        public int vtableMethodsSize;
-        public uint typeDefinitionsOffset;
+        public uint methodsOffset; // Il2CppMethodDefinition
         public int methodsSize;
-        public uint unresolvedVirtualCallParameterRangesOffset;
-        public int imagesSize;
-        public uint nestedTypesOffset;
-        public int fieldsSize;
-        public uint fieldRefsOffset;
-        public int unknown9C;
-        public uint genericParameterConstraintsOffset;
-        public int unknownA4;
-        public uint interfaceOffsetsOffset;
-        public int windowsRuntimeTypeNamesSize;
-        public uint windowsRuntimeTypeNamesOffset;
-        public int unknownB4;
-        public uint genericParametersOffset;
-        public int genericContainersSize;
-        public uint vtableMethodsOffset;
-        public int interfacesSize;
-        public uint assembliesOffset;
-        public int fieldRefsSize;
-        public uint eventsOffset;
-        public int unknownD4;
-        public uint imagesOffset;
-        public int genericParameterConstraintsSize;
-        public uint unresolvedVirtualCallParameterTypesOffset;
-        public int unknownE4;
-        public uint interfacesOffset;
-        public int unknownEC;
-        public uint fieldsOffset;
-        public int unknownF4;
-        public uint fieldAndParameterDefaultValueDataOffset;
+        public uint parameterDefaultValuesOffset; // Il2CppParameterDefaultValue
         public int parameterDefaultValuesSize;
-    };
+        public uint fieldDefaultValuesOffset; // Il2CppFieldDefaultValue
+        public int fieldDefaultValuesSize;
+        public uint fieldAndParameterDefaultValueDataOffset; // uint8_t
+        public int fieldAndParameterDefaultValueDataSize;
+        public int fieldMarshaledSizesOffset; // Il2CppFieldMarshaledSize
+        public int fieldMarshaledSizesSize;
+        public uint parametersOffset; // Il2CppParameterDefinition
+        public int parametersSize;
+        public uint fieldsOffset; // Il2CppFieldDefinition
+        public int fieldsSize;
+        public uint genericParametersOffset; // Il2CppGenericParameter
+        public int genericParametersSize;
+        public uint genericParameterConstraintsOffset; // TypeIndex
+        public int genericParameterConstraintsSize;
+        public uint genericContainersOffset; // Il2CppGenericContainer
+        public int genericContainersSize;
+        public uint nestedTypesOffset; // TypeDefinitionIndex
+        public int nestedTypesSize;
+        public uint interfacesOffset; // TypeIndex
+        public int interfacesSize;
+        public uint vtableMethodsOffset; // EncodedMethodIndex
+        public int vtableMethodsSize;
+        public int interfaceOffsetsOffset; // Il2CppInterfaceOffsetPair
+        public int interfaceOffsetsSize;
+        public uint typeDefinitionsOffset; // Il2CppTypeDefinition
+        public int typeDefinitionsSize;
+        public uint imagesOffset; // Il2CppImageDefinition
+        public int imagesSize;
+        public uint assembliesOffset; // Il2CppAssemblyDefinition
+        public int assembliesSize;
+        public uint fieldRefsOffset; // Il2CppFieldRef
+        public int fieldRefsSize;
+        public int referencedAssembliesOffset; // int32_t
+        public int referencedAssembliesSize;
+        public uint attributeDataOffset;
+        public int attributeDataSize;
+        public uint attributeDataRangeOffset;
+        public int attributeDataRangeSize;
+        public int unresolvedVirtualCallParameterTypesOffset; // TypeIndex
+        public int unresolvedVirtualCallParameterTypesSize;
+        public int unresolvedVirtualCallParameterRangesOffset; // Il2CppRange
+        public int unresolvedVirtualCallParameterRangesSize;
+        public int windowsRuntimeTypeNamesOffset; // Il2CppWindowsRuntimeTypeNamePair
+        public int windowsRuntimeTypeNamesSize;
+        public int windowsRuntimeStringsOffset; // const char*
+        public int windowsRuntimeStringsSize;
+        public int exportedTypeDefinitionsOffset; // TypeDefinitionIndex
+        public int exportedTypeDefinitionsSize;
+
+        public void PrintAll()
+        {
+            Console.WriteLine($"sanity: {sanity}");
+            Console.WriteLine($"version: {version}");
+            Console.WriteLine($"stringLiteralOffset: {stringLiteralOffset}");
+            Console.WriteLine($"stringLiteralSize: {stringLiteralSize}");
+            Console.WriteLine($"stringLiteralDataOffset: {stringLiteralDataOffset}");
+            Console.WriteLine($"stringLiteralDataSize: {stringLiteralDataSize}");
+            Console.WriteLine($"stringOffset: {stringOffset}");
+            Console.WriteLine($"stringSize: {stringSize}");
+            Console.WriteLine($"eventsOffset: {eventsOffset}");
+            Console.WriteLine($"eventsSize: {eventsSize}");
+            Console.WriteLine($"propertiesOffset: {propertiesOffset}");
+            Console.WriteLine($"propertiesSize: {propertiesSize}");
+            Console.WriteLine($"methodsOffset: {methodsOffset}");
+            Console.WriteLine($"methodsSize: {methodsSize}");
+            Console.WriteLine($"parameterDefaultValuesOffset: {parameterDefaultValuesOffset}");
+            Console.WriteLine($"parameterDefaultValuesSize: {parameterDefaultValuesSize}");
+            Console.WriteLine($"fieldDefaultValuesOffset: {fieldDefaultValuesOffset}");
+            Console.WriteLine($"fieldDefaultValuesSize: {fieldDefaultValuesSize}");
+            Console.WriteLine($"fieldAndParameterDefaultValueDataOffset: {fieldAndParameterDefaultValueDataOffset}");
+            Console.WriteLine($"fieldAndParameterDefaultValueDataSize: {fieldAndParameterDefaultValueDataSize}");
+            Console.WriteLine($"fieldMarshaledSizesOffset: {fieldMarshaledSizesOffset}");
+            Console.WriteLine($"fieldMarshaledSizesSize: {fieldMarshaledSizesSize}");
+            Console.WriteLine($"parametersOffset: {parametersOffset}");
+            Console.WriteLine($"parametersSize: {parametersSize}");
+            Console.WriteLine($"fieldsOffset: {fieldsOffset}");
+            Console.WriteLine($"fieldsSize: {fieldsSize}");
+            Console.WriteLine($"genericParametersOffset: {genericParametersOffset}");
+            Console.WriteLine($"genericParametersSize: {genericParametersSize}");
+            Console.WriteLine($"genericParameterConstraintsOffset: {genericParameterConstraintsOffset}");
+            Console.WriteLine($"genericParameterConstraintsSize: {genericParameterConstraintsSize}");
+            Console.WriteLine($"genericContainersOffset: {genericContainersOffset}");
+            Console.WriteLine($"genericContainersSize: {genericContainersSize}");
+            Console.WriteLine($"nestedTypesOffset: {nestedTypesOffset}");
+            Console.WriteLine($"nestedTypesSize: {nestedTypesSize}");
+            Console.WriteLine($"interfacesOffset: {interfacesOffset}");
+            Console.WriteLine($"interfacesSize: {interfacesSize}");
+            Console.WriteLine($"vtableMethodsOffset: {vtableMethodsOffset}");
+            Console.WriteLine($"vtableMethodsSize: {vtableMethodsSize}");
+            Console.WriteLine($"interfaceOffsetsOffset: {interfaceOffsetsOffset}");
+            Console.WriteLine($"interfaceOffsetsSize: {interfaceOffsetsSize}");
+            Console.WriteLine($"typeDefinitionsOffset: {typeDefinitionsOffset}");
+            Console.WriteLine($"typeDefinitionsSize: {typeDefinitionsSize}");
+            Console.WriteLine($"imagesOffset: {imagesOffset}");
+            Console.WriteLine($"imagesSize: {imagesSize}");
+            Console.WriteLine($"assembliesOffset: {assembliesOffset}");
+            Console.WriteLine($"assembliesSize: {assembliesSize}");
+            Console.WriteLine($"fieldRefsOffset: {fieldRefsOffset}");
+            Console.WriteLine($"fieldRefsSize: {fieldRefsSize}");
+            Console.WriteLine($"referencedAssembliesOffset: {referencedAssembliesOffset}");
+            Console.WriteLine($"referencedAssembliesSize: {referencedAssembliesSize}");
+            Console.WriteLine($"attributeDataOffset: {attributeDataOffset}");
+            Console.WriteLine($"attributeDataSize: {attributeDataSize}");
+            Console.WriteLine($"attributeDataRangeOffset: {attributeDataRangeOffset}");
+            Console.WriteLine($"attributeDataRangeSize: {attributeDataRangeSize}");
+            Console.WriteLine($"unresolvedVirtualCallParameterTypesOffset: {unresolvedVirtualCallParameterTypesOffset}");
+            Console.WriteLine($"unresolvedVirtualCallParameterTypesSize: {unresolvedVirtualCallParameterTypesSize}");
+            Console.WriteLine($"unresolvedVirtualCallParameterRangesOffset: {unresolvedVirtualCallParameterRangesOffset}");
+            Console.WriteLine($"unresolvedVirtualCallParameterRangesSize: {unresolvedVirtualCallParameterRangesSize}");
+            Console.WriteLine($"windowsRuntimeTypeNamesOffset: {windowsRuntimeTypeNamesOffset}");
+            Console.WriteLine($"windowsRuntimeTypeNamesSize: {windowsRuntimeTypeNamesSize}");
+            Console.WriteLine($"windowsRuntimeStringsOffset: {windowsRuntimeStringsOffset}");
+            Console.WriteLine($"windowsRuntimeStringsSize: {windowsRuntimeStringsSize}");
+            Console.WriteLine($"exportedTypeDefinitionsOffset: {exportedTypeDefinitionsOffset}");
+            Console.WriteLine($"exportedTypeDefinitionsSize: {exportedTypeDefinitionsSize}");
+        }
+    }
 
     public class Il2CppAssemblyDefinition
     {
